@@ -1,10 +1,12 @@
-import Login from './components/Login/Login';
-import List from './components/Associates/List';
-import Unauthorized from './components/Unauthorized';
+import Routes from './routes';
+import Header from './components/Header/Header'
 
 function App() {
   return (
-    <List/>
+    <>
+      <Header/>
+      <Routes/>
+    </>
   );
 }
 
