@@ -10,7 +10,7 @@ class AssociateHorizontalCard extends Component {
                 <Card.Body>
                     <Card.Title>Kayan Lira</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">Plano Empresarial - Apartamento</Card.Subtitle>
-                    <Card.Link href="#">Exames</Card.Link>
+                    <Card.Link href="/associate/exams">Exames</Card.Link>
                 </Card.Body>
             </Card>
         </>

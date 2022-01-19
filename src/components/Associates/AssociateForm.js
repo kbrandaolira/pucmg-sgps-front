@@ -92,7 +92,7 @@ class AssociateForm extends Component {
                     </Row>
                     <hr/>
                     <Button variant="primary" type="submit" style={{ marginTop: '10px', float: 'right', marginLeft: '10px' }}>
-                        Submit
+                        Salvar
                     </Button>
                     <Link to="/"><Button style={{ marginTop: '10px', float: 'right' }} variant="secondary">Voltar</Button></Link>&nbsp;
                 </Form>
