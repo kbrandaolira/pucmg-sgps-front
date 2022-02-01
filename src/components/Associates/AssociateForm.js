@@ -6,7 +6,7 @@ import { properties } from '../../properties';
 
 const associateData = {
     name: '',
-    birthDate: null,
+    birthDate: '',
     cpf: '',
     email: '',
     typeOfHealthPlan: '',
@@ -151,16 +151,24 @@ class AssociateForm extends Component {
         var associate = this.state
 
         fetch(properties.ms_associados_url + "associate", {
-        method: "POST",
-        body: JSON.stringify(associate),
-        headers: {
-            'Content-Type': 'application/json'
-        }
+            method: "POST",
+            body: JSON.stringify(associate),
+            headers: {
+                'Content-Type': 'application/json'}
         })
-        .then(function(response){
-            console.log(response)
-            console.log(response.text())
+        //.then(res => res.json())
+        .then(data => {
+            if(data.status === 201){
+                //TODO redirect to list
+            } else if(data.status === 422){
+                alert("Existem erros no formulário.")
+            } else {
+                alert("Ocorreu um erro inesperado!")
+            }
         })
+        .catch(error => {
+            console.log(error)
+        })  
     }
 
 }
