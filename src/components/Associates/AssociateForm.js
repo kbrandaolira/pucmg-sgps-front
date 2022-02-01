@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import {Container, Button, Form, Row, Col} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
+import { properties } from '../../properties';
 
 const associateData = {
     name: '',
-    birthDate: '',
+    birthDate: null,
     cpf: '',
     email: '',
     typeOfHealthPlan: '',
@@ -147,6 +148,19 @@ class AssociateForm extends Component {
     handleSubmit(e){
         e.preventDefault();
         console.log("handle submit");
+        var associate = this.state
+
+        fetch(properties.ms_associados_url + "associate", {
+        method: "POST",
+        body: JSON.stringify(associate),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+        })
+        .then(function(response){
+            console.log(response)
+            console.log(response.text())
+        })
     }
 
 }
