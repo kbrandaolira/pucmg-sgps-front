@@ -33,18 +33,24 @@ class AssociateList extends Component {
   }
 
   render() {
-    console.log(this.state)
-    return (
-        <>
-            <Container>
-                <h4>Associados</h4>
-                <hr></hr>
-                <AssociateHorizontalCard></AssociateHorizontalCard>
-            <hr></hr>
-            <Link to="/associate/form"><Button to="/associate/form" style={{ marginTop: '10px', float: 'right' }} variant="secondary">Cadastrar Associado</Button></Link>
-            </Container>
-        </>
-    );
+    const { isLoaded, associates } = this.state;
+
+    if(!isLoaded){
+        return <div style={{textAlign: "center"}}>Loading...</div>
+    } else {
+        return <div>
+                    <Container>
+                        <h4>Associados</h4>
+                        <hr></hr>
+                        {associates.map(associate => (
+                            <AssociateHorizontalCard key={associate.id} associate={associate} ></AssociateHorizontalCard>
+                        ))}
+                        <hr></hr>
+                        <Link to="/associate/form"><Button to="/associate/form" style={{ marginTop: '10px', float: 'right' }} variant="secondary">Cadastrar Associado</Button></Link>
+                    </Container>
+                    
+                </div>
+    }
   }
        
 }
