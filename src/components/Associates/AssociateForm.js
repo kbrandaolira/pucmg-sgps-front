@@ -123,7 +123,7 @@ class AssociateForm extends Component {
                         <Button variant="primary" type="submit" onClick={this.handleSubmit} style={{ marginTop: '10px', float: 'right', marginLeft: '10px' }}>
                             Salvar
                         </Button>
-                        <Link to="/"><Button style={{ marginTop: '10px', float: 'right' }} variant="secondary">Voltar</Button></Link>&nbsp;
+                        <Link id="backButton" to="/"><Button style={{ marginTop: '10px', float: 'right' }} variant="secondary">Voltar</Button></Link>&nbsp;
                     </Form>
                 </Container>
             </>
@@ -150,16 +150,17 @@ class AssociateForm extends Component {
         console.log("handle submit");
         var associate = this.state
 
+        
+
         fetch(properties.ms_associados_url + "associate", {
             method: "POST",
             body: JSON.stringify(associate),
             headers: {
                 'Content-Type': 'application/json'}
         })
-        //.then(res => res.json())
         .then(data => {
             if(data.status === 201){
-                //TODO redirect to list
+                document.getElementById("backButton").click()
             } else if(data.status === 422){
                 alert("Existem erros no formulário.")
             } else {
