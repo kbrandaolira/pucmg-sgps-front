@@ -141,8 +141,6 @@ class AssociateForm extends Component {
             classificationOfHealthPlan: e.target.id === "cidClassificationOfHealthPlan" ? e.target.value : this.state.classificationOfHealthPlan,
             dentalPlan: e.target.name === "cidDentalPlan" ? document.querySelector(`input[name=${e.target.name}]:checked`).value : this.state.dentalPlan,
         });
-
-        console.log(this.state);
     }
 
     handleSubmit(e){

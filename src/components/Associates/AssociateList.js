@@ -3,9 +3,37 @@ import {Container, Button} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AssociateHorizontalCard from './AssociateHorizontalCard';
 import { Link } from 'react-router-dom';
+import { properties } from '../../properties'
 
 class AssociateList extends Component {
+  constructor(){
+    super();
+    this.state = {
+        isLoaded: false,
+        associates: []
+    }
+  }
+
+  componentDidMount() {
+    fetch(properties.ms_associados_url + "associate")
+    .then(res => res.json())
+    .then(
+        (result) => {
+            this.setState({
+                isLoaded: true,
+                associates: result
+            });
+        },
+        (error) => {
+            this.setState({
+                isLoaded: true,
+            });
+        }
+    )
+  }
+
   render() {
+    console.log(this.state)
     return (
         <>
             <Container>
