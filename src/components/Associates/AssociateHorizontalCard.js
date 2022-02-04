@@ -16,12 +16,12 @@ class AssociateHorizontalCard extends Component {
 
     return (
         <>
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '18rem', marginLeft: "2px" }}>
                 <Card.Body>
                     <Card.Title>{associate.name}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">{associate.typeOfHealthPlan} - {associate.classificationOfHealthPlan} </Card.Subtitle>
                     {/* <Card.Link href={"/associate/exams/" + associate.id}>Exames</Card.Link> */}
-                    <Card.Link href="/associate/exams">Exames</Card.Link> 
+                    <Card.Link style={{marginTop: "10px"}} href="/associate/exams">Exames</Card.Link> 
                 </Card.Body>
             </Card>
         </>

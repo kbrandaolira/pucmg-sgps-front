@@ -42,11 +42,15 @@ class AssociateList extends Component {
                     <Container>
                         <h4>Associados</h4>
                         <hr></hr>
-                        {associates.map(associate => (
-                            <AssociateHorizontalCard key={associate.id} associate={associate} ></AssociateHorizontalCard>
-                        ))}
+                        <div className='container-fluid d-flex flex-wrap'>
+                            {associates.map(associate => {
+                                return (
+                                    <AssociateHorizontalCard key={associate.id} associate={associate}></AssociateHorizontalCard>
+                                );
+                            })}
+                        </div>
                         <hr></hr>
-                        <Link to="/associate/form"><Button to="/associate/form" style={{ marginTop: '10px', float: 'right' }} variant="secondary">Cadastrar Associado</Button></Link>
+                        <Link to="/associate/form"><Button to="/associate/form" style={{ marginTop: '10px' }} variant="secondary">Cadastrar Associado</Button></Link>
                     </Container>
                     
                 </div>
