@@ -16,7 +16,7 @@ class AssociateHorizontalCard extends Component {
 
     return (
         <>
-            <Card style={{ width: '18rem', marginLeft: "2px" }}>
+            <Card style={{ width: '18rem', marginLeft: "2px", marginTop: "2px" }}>
                 <Card.Body>
                     <Card.Title>{associate.name}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">{associate.typeOfHealthPlan} - {associate.classificationOfHealthPlan} </Card.Subtitle>
