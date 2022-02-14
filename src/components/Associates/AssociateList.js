@@ -38,16 +38,26 @@ class AssociateList extends Component {
     if(!isLoaded){
         return <div style={{textAlign: "center"}}>Loading...</div>
     } else {
+        var body
+
+        if(associates.length > 0){
+            body =  <div className='container-fluid d-flex flex-wrap'>
+                        {associates.map(associate => {
+                            return (
+                                <AssociateHorizontalCard key={associate.id} associate={associate}></AssociateHorizontalCard>
+                            );
+                        })}
+                    </div>
+        } else {
+            body = "Nenhum associado foi encontrado."
+        }
+
         return <div>
                     <Container>
                         <h4>Associados</h4>
                         <hr></hr>
                         <div className='container-fluid d-flex flex-wrap'>
-                            {associates.map(associate => {
-                                return (
-                                    <AssociateHorizontalCard key={associate.id} associate={associate}></AssociateHorizontalCard>
-                                );
-                            })}
+                          {body}
                         </div>
                         <hr></hr>
                         <Link to="/associate/form"><Button to="/associate/form" style={{ marginTop: '10px' }} variant="secondary">Cadastrar Associado</Button></Link>
