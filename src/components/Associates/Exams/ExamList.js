@@ -3,21 +3,22 @@ import {Container, Row, Col, Button} from 'react-bootstrap'
 import AssociateVerticalCard from '../AssociateVerticalCard'
 import ExamCard from './ExamCard'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams, setSearchParams } from 'react-router-dom';
 import { properties } from '../../../properties'
 
 class ExamList extends Component {
     constructor(){
         super();
+        var urlArray = window.location.href.split("/")
         this.state = {
             isLoaded: false,
-            exams: []
+            exams: [],
+            associateId: urlArray[urlArray.length-1]
         }
       }
     
-      //TODO Passar o ID do associado ao invés de fixo!!!
       componentDidMount() {
-        fetch(properties.ms_documentos_url + "document/MEDICAL_EXAM/from/ASSOCIATE/1/")
+        fetch(`${properties.ms_documentos_url}document/MEDICAL_EXAM/from/ASSOCIATE/${this.state.associateId}`)
         .then(res => res.json())
         .then(
             (result) => {
